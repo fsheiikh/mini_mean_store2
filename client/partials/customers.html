@@ -1,0 +1,57 @@
+<script>
+		$( document ).ready(function() {
+     	
+     		
+				$("form").submit(function(){
+
+					if($("input").val() =='') {
+						$('h5').html("Invalid! must add name");
+
+						return false;
+					} 
+					else if($("input").val() !=='') {
+						$('h5').html(" ");
+						
+						return false;
+					} 
+					
+
+				})
+
+              
+     	
+});
+	</script>
+
+<div class="well" ng-controller="CustomersController as CC">
+	<form class="form">
+		<input type="text" ng-model="CC.newCustomer.name">
+		<button class="btn btn-success" type="submit" ng-click="CC.create(CC.newCustomer)">Add Customer</button>
+		<h5></h5>
+	</form>
+
+	<input type="text" ng-model="filter_name" placeholder="Search by name">{{}}
+
+	<table class="table table-bordered table-striped">
+		<tr>
+			<th>Customer Name</th>
+			<th>Joined on</th>
+			<th>Actions</th>
+			<th>Edit</th>
+		</tr>
+		<tr ng-repeat="C in CC.customers | filter:filter_name | orderBy:'date'">
+			<td ng-bind="C.name"></td>
+			<td>{{C.moment}}</td>
+			<td><button class="btn btn-danger" ng-click="CC.remove(C._id)">Remove</button></td>
+			<td><a href="#/customers/update/{{C._id}}"><button ng-click="CC.show(C._id)" class="btn btn-primary">Update</button></a></td>
+		</tr>
+	</table>
+
+
+
+
+
+
+
+
+</div>

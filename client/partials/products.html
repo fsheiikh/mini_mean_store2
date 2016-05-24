@@ -1,0 +1,19 @@
+<div ng-controller="ProductsController as PC">
+
+	<form class="well" >
+		Product Name:<input class="form-control" type="text" ng-model="PC.newProduct.name">
+		Image URL: <input class="form-control" type="text" ng-model="PC.newProduct.image">
+		Description: <textarea class="form-control" type="text" ng-model="PC.newProduct.description"></textarea><br>
+		Initial Quantity: <input type="text" ng-model="PC.newProduct.quantity"><br><br>
+		 <button class="btn btn-primary form-control" ng-click="PC.create(PC.newProduct)">Add Product</button>
+	</form>
+
+	<div class="pro well" ng-repeat="p in PC.products">
+		<h4 ng-bind="p.name"></h4>
+		<img class="image" src="{{p.image}}">
+		<h5 ng-bind="p.description"></h4>
+		<h6>{{ (p.quantity) }} left</h6>
+
+	</div>
+
+</div>

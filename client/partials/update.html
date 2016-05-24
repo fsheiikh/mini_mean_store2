@@ -1,0 +1,31 @@
+
+<div class="well" ng-controller="CustomersController as CC">
+	<form class="form">
+		<input type="text" placeholder={{CC.each.name}} ng-model="CC.newCustomer.name">
+		<a href="#/customers"><button class="btn btn-success" type="submit" ng-click="CC.update(CC.each._id, CC.newCustomer)">Add Customer</button></a>
+		<h5></h5>
+	</form>
+
+	
+<!-- 	<table class="table table-bordered table-striped">
+		<tr>
+			<th>Customer Name</th>
+			<th>Joined on</th>
+			
+		</tr>
+		<tr>
+			<td ng-bind="CC.each.name"></td>
+			<td>{{CC.each.moment}}</td>
+			<td><button class="btn btn-danger" ng-click="CC.remove(C._id)">Remove</button></td>
+			<! <td><a href="#/customers/update"><button ng-click="CC.show(sC._id)" class="btn btn-primary">Update</button></a></td> -->
+		</tr>
+	</table>
+
+
+
+
+
+
+
+
+</div>

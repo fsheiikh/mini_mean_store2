@@ -1,0 +1,36 @@
+<div ng-controller="OrdersController as OC">
+	<form class="form well">
+		Customer:
+		 <select ng-model="OC.newOrder._customer">
+		 	<option ng-repeat="c in OC.customers" value="{{c._id}}">{{c.name}}</option>
+		 </select>
+
+		 Quantity:
+		 <input type="text" ng-model="OC.newOrder.quantity">
+
+		 Products:
+		 <select  ng-model="OC.newOrder._product">
+		 	<option ng-repeat="p in OC.products" value="{{p._id}}">{{p.name}}</option>
+		 </select>
+
+		 <button class="btn btn-warning" ng-click="OC.create(OC.newOrder)" >Place An Order</button>
+	</form>
+	<!-- <input type="text" ng-model="filter_name">  -->
+	<table class="table table-bordered table-striped">
+		<tr>
+			<td>Customer Name</td>
+			<td>Product</td>
+			<td>Quantity</td>
+			<td>Date Ordered</td>
+			<td>Action</td>
+		</tr>
+		<tr ng-repeat="o in OC.orders">
+			<td>{{o._customer.name}}</td>
+			<td>{{o._product.name}}</td>
+			<td>{{o.quantity}}</td>
+			<td>{{o.moment}}</td>
+			<td><button ng-click="OC.remove(o._id)">Remove</td>
+		</tr>
+	</table>
+
+</div>
